@@ -3,6 +3,8 @@ This is an android version of a Kanban project called [Katify](https://github.co
 It consists of an annotation app, on which the notes can be separate into different pastes (here called kanbans, though they are not exactly a kanban). 
 The app was developped to help people organize their tasks.
 
+Youtube video demo: [https://youtu.be/iDPknAUSYHg](https://youtu.be/iDPknAUSYHg)
+
 ## Screens
 
 <p align="center">
