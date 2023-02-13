@@ -18,4 +18,5 @@
     <string name="fail_search">An error occurred</string>
     <string name="success_create">Kanban successfully created</string>
     <string name="fail_create">Couldn\'t create your kanban :(</string>
+    <string name="enter_anonymously">Enter anonymously</string>
 </resources>
