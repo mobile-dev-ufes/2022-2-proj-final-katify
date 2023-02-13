@@ -3,6 +3,7 @@ package com.example.katify.viewModel
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.AuthCredential
 import com.example.katify.data.LoginRepository
 import com.example.katify.data.model.Kanban
@@ -32,5 +33,15 @@ class LoginViewModel : ViewModel() {
      */
     fun createUser(authenticatedUser : User) {
         createdUserLiveData = authRepository.createUserInFirestoreIfNotExists(authenticatedUser)
+    }
+
+    /**
+     * Creates an anonymous [User]
+     */
+    fun createAnonymUser()  {
+        val user = MutableLiveData<User>()
+        user.value = User("1", "Anonymous",
+            "https://cdn-icons-png.flaticon.com/512/235/235349.png", "" , isCreated = true)
+        createdUserLiveData = user
     }
 }
