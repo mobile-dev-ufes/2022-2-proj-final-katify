@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.googleLoginBtn.setOnClickListener(this)
+        binding.anonymLoginBtn.setOnClickListener(this)
 
         loginVM = ViewModelProvider(this).get(LoginViewModel::class.java)
     }
@@ -62,6 +63,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v!!.id == R.id.google_login_btn) {
             openSomeActivityForResult()
+        } else if (v!!.id == R.id.anonym_login_btn) {
+            createAnonymousUser()
         }
     }
 
@@ -132,6 +135,18 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun createNewUser(authenticatedUser: User) {
         loginVM.createUser(authenticatedUser)
+        loginVM.createdUserLiveData.observe(this) { user ->
+            if (user.isCreated) {
+                goToKanbansActivity(user)
+            }
+        }
+    }
+
+    /**
+     * Create a new anonymous [User]
+     */
+    private fun createAnonymousUser() {
+        loginVM.createAnonymUser()
         loginVM.createdUserLiveData.observe(this) { user ->
             if (user.isCreated) {
                 goToKanbansActivity(user)
