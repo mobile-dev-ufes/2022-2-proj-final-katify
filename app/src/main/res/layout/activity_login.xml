@@ -54,6 +54,22 @@
         app:layout_constraintTop_toBottomOf="@id/login_text"
         />
 
+    <Button
+        android:id="@+id/anonym_login_btn"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/gray_pink"
+        android:text="@string/enter_anonymously"
+        app:layout_constraintVertical_bias="0.2"
+        android:textAllCaps="false"
+        android:textColor="@color/pink_gray_400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/google_login_btn"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
